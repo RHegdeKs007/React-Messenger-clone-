@@ -1,16 +1,28 @@
+body{
+  background-color: rgba(1, 1, 1, 0.97);
+}
+h1,h2 {
+  color: white !important;
+}
 .App {
   text-align: center;
 }
 
 .app__form {
-  padding: 10px;
+  
+  padding: 0 10px 10px 10px;
   position: fixed;
   bottom: 0;
   z-index: 1;
   background-color: #e9e9eb;
   width: 100%;
   margin-left: 0px;
+  margin-bottom: -4px;
+  background-color: rgb(47, 47, 48);
+  color: white !important;
+  
 }
+
 .app__formcontrol{
   display:  flex !important;
   flex-direction: row !important;

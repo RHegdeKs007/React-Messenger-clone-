@@ -8,12 +8,14 @@
 }
 .message__user{
     margin-left: auto ;
-    color: white;
+    color: white !important;
     text-align: left !important;
 }
 .message__userCard{
-    background-color: #0078FF !important;
+    background-color: #6950af !important;
+    color: white !important;
 }
 .message__guestCard{
-    background-color: rgb(173, 173, 173) !important;
+    background-color: rgb(31, 30, 30) !important;
+    color: white !important;
 }

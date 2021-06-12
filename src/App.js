@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
 import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    db.collection('message').orderBy('timestamp','desc').onSnapshot(snapshot => {
+    db.collection('message').orderBy('timestamp','asc').onSnapshot(snapshot => {
       setMessages(snapshot.docs.map(doc =>({id: doc.id, message: doc.data() })))
     });
     
@@ -31,6 +32,7 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault();
+    window.scrollTo(0,999999999999);
 
     db.collection('message').add({
       message: input,
@@ -45,15 +47,17 @@ function App() {
     <div className="App">
       <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100" />
       <h1>Messenger ! </h1>
-      <h2>Welcome {username}</h2>
+      <h2>{username}</h2>
 
 
       <form className="app__form">
           
         <FormControl className="app__formcontrol">
+            
            <Input className="app__input" placeholder="Enter a message" value={input} onChange= {event => setInput(event.target.value)} />
+           
             <IconButton className="app__iconbutton" disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}>
-            <SendIcon />
+            <EmojiEmotionsIcon /> <SendIcon />
             </IconButton>
         </FormControl>
       </form>
